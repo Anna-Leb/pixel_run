@@ -19,11 +19,6 @@ func updateAnimation():
 		
 	animation.play(direction)
 	
-func add_coin() -> void:
-	# Используем глобальный скрипт Global для хранения монет
-	Global.add_coins(1)
-	
-	
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
