@@ -3,9 +3,12 @@ extends CharacterBody2D
 @onready var animation = $AnimationPlayer
 @onready var sprite = $BaseCat 
 
-const SPEED = 300.0
+const SPEED = 180.0
 const JUMP_VELOCITY = -300.0
 
+func _ready():
+	add_to_group("Player")
+	
 func updateAnimation():
 	var direction = "stay"
 	
@@ -15,7 +18,12 @@ func updateAnimation():
 		direction = "jump"
 		
 	animation.play(direction)
-		
+	
+func add_coin() -> void:
+	# Используем глобальный скрипт Global для хранения монет
+	Global.add_coins(1)
+	
+	
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -25,10 +33,9 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
-	# Get the input direction and handle the movement/deceleration.
 	var direction := Input.get_axis("ui_left", "ui_right")
 	
-	if direction != 0:
+	if direction:
 		# УСКОРЕНИЕ: постепенно увеличиваем скорость к max_speed
 		velocity.x = move_toward(velocity.x, direction * SPEED, 1000 * delta)
 	else:
@@ -38,4 +45,4 @@ func _physics_process(delta: float) -> void:
 	sprite.flip_h = velocity.x < 0 if abs(velocity.x) > 10 else sprite.flip_h
 	
 	move_and_slide()
-	updateAnimation()
+	updateAnimation()	

@@ -1,3 +1,4 @@
+# скрипт для сохранения общих данных игры - в дальнейшем можно заменить на БД
 extends Node
 
 var coins: int = 0
@@ -9,9 +10,9 @@ func add_coins(amount: int):
 	coins += amount
 	total_coins += amount
 	coins_changed.emit(coins)
-	print("Монеток собрано: ", coins)
+	print("Монеток собрано: ", coins)	# отладка
 	
-func spend_coins(amount: int) -> bool:
+func spend_coins(amount: int) -> bool:	# функция для траты монет (будущее)
 	if coins >= amount:
 		coins -= amount
 		coins_changed.emit(coins)
