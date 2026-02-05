@@ -12,4 +12,9 @@ func _process(delta: float) -> void:
 
 func _on_button_pressed() -> void:
 		get_tree().change_scene_to_file("res://scenes/Main_Scene.tscn")
-		print("переход на уровень")
+		print("переход на уровень 1")
+
+
+func _on_button_2_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/map2.tscn")
+	print("переход на уровень 2")
