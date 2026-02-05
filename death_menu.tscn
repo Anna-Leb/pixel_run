@@ -1,0 +1,61 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1fai0rwln7lx"]
+
+[ext_resource type="FontFile" uid="uid://q8f7sujwtdhw" path="res://fonts/MintsodaLimeGreen13X16Regular-KVvzA.ttf" id="1_dhhda"]
+[ext_resource type="Script" uid="uid://v2q7welq4h8x" path="res://scripts/death_menu.gd" id="1_eawuk"]
+
+[node name="death_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eawuk")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 465.0
+offset_bottom = 384.0
+color = Color(0.07411807, 0.17389086, 0.2359468, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_top = 76.0
+offset_right = 465.0
+offset_bottom = 117.0
+theme_override_fonts/font = ExtResource("1_dhhda")
+theme_override_font_sizes/font_size = 24
+text = "О нет! Вы проиграли"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 263.0
+offset_right = 451.0
+offset_bottom = 294.0
+focus_neighbor_left = NodePath("../Button")
+focus_neighbor_top = NodePath("../Button")
+focus_neighbor_right = NodePath("../Button")
+focus_neighbor_bottom = NodePath("../Button")
+focus_next = NodePath("../Button")
+theme_override_fonts/font = ExtResource("1_dhhda")
+text = "Вернутся в главное меню"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 225.0
+offset_right = 451.0
+offset_bottom = 256.0
+focus_neighbor_left = NodePath("../Button2")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_bottom = NodePath("../Button2")
+focus_next = NodePath("../Button2")
+focus_previous = NodePath(".")
+theme_override_fonts/font = ExtResource("1_dhhda")
+text = "Начать заново"
+
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_1_pressed"]
