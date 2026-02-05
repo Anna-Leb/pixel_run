@@ -1,0 +1,71 @@
+[gd_scene load_steps=8 format=3 uid="uid://bubc36nnbm7ps"]
+
+[ext_resource type="Script" uid="uid://dahn8ns5nc4rd" path="res://scripts/coin.gd" id="1_i64fm"]
+[ext_resource type="AudioStream" uid="uid://dvam01dfwvr5y" path="res://sounds/collected_coin.mp3" id="2_11l1o"]
+[ext_resource type="Texture2D" uid="uid://d0dfmx244kfim" path="res://assets/objects/coin_animation.png" id="2_i64fm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d14el"]
+
+[sub_resource type="Animation" id="Animation_d14el"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_11l1o"]
+resource_name = "coin"
+length = 0.73
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.26666668, 0.4, 0.53333336, 0.6666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1ikuy"]
+_data = {
+&"RESET": SubResource("Animation_d14el"),
+&"coin": SubResource("Animation_11l1o")
+}
+
+[node name="Node2D" type="Node2D"]
+
+[node name="coin2" type="Area2D" parent="."]
+position = Vector2(473, 1)
+script = ExtResource("1_i64fm")
+
+[node name="Coin_sound" type="AudioStreamPlayer" parent="coin2"]
+stream = ExtResource("2_11l1o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="coin2"]
+position = Vector2(-455, 17)
+shape = SubResource("CircleShape2D_d14el")
+
+[node name="Sprite2D" type="Sprite2D" parent="coin2"]
+position = Vector2(-455, 17)
+scale = Vector2(0.19948454, 0.19948454)
+texture = ExtResource("2_i64fm")
+hframes = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="coin2"]
+libraries = {
+&"": SubResource("AnimationLibrary_1ikuy")
+}
+
+[connection signal="body_entered" from="coin2" to="coin2" method="_on_coin_body_entered"]

@@ -1,0 +1,83 @@
+[gd_scene load_steps=6 format=3 uid="uid://sh5tgqbhmrlw"]
+
+[ext_resource type="Script" uid="uid://b51h7rxnto6k3" path="res://scripts/score_menu.gd" id="1_a1oyn"]
+[ext_resource type="Texture2D" uid="uid://caf8byclgn12g" path="res://assets/objects/score_menu_panel.png" id="2_i6or6"]
+[ext_resource type="Texture2D" uid="uid://drame17vdbsyk" path="res://assets/objects/empty_score.png" id="3_aofam"]
+[ext_resource type="Texture2D" uid="uid://gflxkxep42iw" path="res://assets/objects/full_score.png" id="4_aofam"]
+
+[sub_resource type="FontFile" id="FontFile_aofam"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/15/0/ascent = 0.0
+cache/0/15/0/descent = 0.0
+cache/0/15/0/underline_position = 0.0
+cache/0/15/0/underline_thickness = 0.0
+cache/0/15/0/scale = 1.0
+cache/0/14/0/ascent = 0.0
+cache/0/14/0/descent = 0.0
+cache/0/14/0/underline_position = 0.0
+cache/0/14/0/underline_thickness = 0.0
+cache/0/14/0/scale = 1.0
+cache/0/13/0/ascent = 0.0
+cache/0/13/0/descent = 0.0
+cache/0/13/0/underline_position = 0.0
+cache/0/13/0/underline_thickness = 0.0
+cache/0/13/0/scale = 1.0
+cache/0/12/0/ascent = 0.0
+cache/0/12/0/descent = 0.0
+cache/0/12/0/underline_position = 0.0
+cache/0/12/0/underline_thickness = 0.0
+cache/0/12/0/scale = 1.0
+cache/0/11/0/ascent = 0.0
+cache/0/11/0/descent = 0.0
+cache/0/11/0/underline_position = 0.0
+cache/0/11/0/underline_thickness = 0.0
+cache/0/11/0/scale = 1.0
+cache/0/10/0/ascent = 0.0
+cache/0/10/0/descent = 0.0
+cache/0/10/0/underline_position = 0.0
+cache/0/10/0/underline_thickness = 0.0
+cache/0/10/0/scale = 1.0
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 106.0
+offset_bottom = 57.0
+script = ExtResource("1_a1oyn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(53.085785, 28.5)
+scale = Vector2(0.23752029, 0.23849374)
+texture = ExtResource("2_i6or6")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(53, 28.500002)
+scale = Vector2(0.237, 0.238)
+texture = ExtResource("3_aofam")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(36, 16.999996)
+scale = Vector2(0.23756824, 0.23849376)
+texture = ExtResource("4_aofam")
+hframes = 3
+vframes = 2
+region_enabled = true
+region_rect = Rect2(104, 22, 292, 195)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 6.0
+offset_right = 53.0
+offset_bottom = 37.0
+theme_override_fonts/font = SubResource("FontFile_aofam")
+theme_override_font_sizes/font_size = 11
+text = "обратно"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -1,0 +1,81 @@
+[gd_scene load_steps=9 format=4 uid="uid://cu04uplpojijq"]
+
+[ext_resource type="PackedScene" uid="uid://neajtxi8ws0u" path="res://scenes/tilemap.tscn" id="1_5w0ad"]
+[ext_resource type="PackedScene" uid="uid://besvw4pcftv4l" path="res://scenes/player.tscn" id="2_kocsa"]
+[ext_resource type="PackedScene" uid="uid://bubc36nnbm7ps" path="res://scenes/coin.tscn" id="3_0a3ge"]
+[ext_resource type="Texture2D" uid="uid://cv7pxbjjvhjjr" path="res://assets/background_textures/bg2.png" id="4_v41ee"]
+[ext_resource type="Texture2D" uid="uid://cprjn4yqn0gks" path="res://assets/background_textures/bg1.png" id="5_tltda"]
+[ext_resource type="Script" uid="uid://ct1g4aijyu1a8" path="res://scripts/sky.gd" id="6_p6qw5"]
+[ext_resource type="Texture2D" uid="uid://dvhvmx640sv4k" path="res://assets/background_textures/clouds.png" id="7_6li7e"]
+[ext_resource type="PackedScene" uid="uid://sh5tgqbhmrlw" path="res://scenes/score_menu.tscn" id="8_tcq6v"]
+
+[node name="map2" type="Node2D"]
+
+[node name="TileMapLayer" parent="." instance=ExtResource("1_5w0ad")]
+tile_map_data = PackedByteArray("AAACABkAAgACAAEAAAADABkAAgACAAEAAAAEABkAAgACAAEAAAAFABkAAgACAAEAAAAGABkAAgACAAEAAAAHABkAAgACAAEAAAAIABkAAgACAAEAAAAJABkAAgACAAEAAAAKABkAAgACAAEAAAALABkAAgACAAEAAAAMABkAAgACAAEAAAANABkAAgACAAEAAAAOABkAAgACAAEAAAAPABkAAgACAAEAAAAQABkAAgACAAEAAAARABkAAgACAAEAAAASABkAAgACAAEAAAATABkAAgACAAEAAAAUABkAAgACAAEAAAAVABkAAgACAAEAAAAWABkAAgACAAEAAAAXABkAAgACAAEAAAACABoAAgACAAYAAAACABsAAgAEAAUAAAADABsAAgACAAYAAAAEABoAAgAEAAUAAAAEABsAAgACAAYAAAAFABoAAgACAAYAAAAFABsAAgACAAYAAAAGABoAAgACAAYAAAAGABsAAgACAAYAAAAHABoAAgACAAYAAAAHABsAAgAEAAUAAAAIABoAAgACAAYAAAAIABsAAgACAAYAAAAJABoAAgACAAYAAAAJABsAAgACAAYAAAAKABoAAgACAAYAAAAKABsAAgAEAAUAAAALABoAAgACAAYAAAALABsAAgAEAAUAAAAMABoAAgAEAAUAAAAMABsAAgAEAAUAAAANABoAAgACAAYAAAANABsAAgAEAAUAAAAOABoAAgAEAAUAAAAOABsAAgAEAAUAAAAPABoAAgACAAYAAAAPABsAAgAEAAUAAAAQABoAAgACAAYAAAAQABsAAgAEAAUAAAARABoAAgAEAAUAAAARABsAAgAEAAUAAAASABoAAgACAAYAAAASABsAAgAEAAUAAAATABoAAgACAAYAAAATABsAAgAEAAUAAAAUABoAAgACAAYAAAAUABsAAgAEAAUAAAAVABoAAgACAAYAAAAVABsAAgAEAAUAAAAWABoAAgAEAAUAAAAWABsAAgAEAAUAAAAXABoAAgACAAYAAAAXABsAAgACAAYAAAADABoAAgACAAYAAAADABwAAgAEAAUAAAAEABwAAgAEAAUAAAATABwAAgAEAAUAAAARABwAAgAEAAUAAAAQABwAAgAEAAUAAAAOABwAAgAEAAUAAAANABwAAgAEAAUAAAALABwAAgAEAAUAAAAKABwAAgAEAAUAAAAJABwAAgAEAAUAAAAIABwAAgAEAAUAAAASABwAAgAEAAUAAAAPABwAAgAEAAUAAAAMABwAAgAEAAUAAAAHABwAAgAEAAUAAAAGABwAAgAEAAUAAAABABkAAgABAAEAAAABABoAAgABAAYAAAABABsAAgABAAYAAAABABwAAgABAAYAAAABAB0AAgABAAcAAAACAB0AAgACAAcAAAADAB0AAgACAAcAAAAEAB0AAgACAAcAAAAFAB0AAgACAAcAAAAGAB0AAgACAAcAAAAHAB0AAgACAAcAAAAIAB0AAgACAAcAAAAJAB0AAgACAAcAAAAKAB0AAgACAAcAAAALAB0AAgACAAcAAAAMAB0AAgACAAcAAAANAB0AAgACAAcAAAAOAB0AAgACAAcAAAAPAB0AAgACAAcAAAAQAB0AAgACAAcAAAARAB0AAgACAAcAAAASAB0AAgACAAcAAAATAB0AAgACAAcAAAAUAB0AAgACAAcAAAAVAB0AAgACAAcAAAAWAB0AAgACAAcAAAAXAB0AAgACAAcAAAAYABkAAgADAAEAAAAYABoAAgADAAYAAAAYABsAAgADAAYAAAAYABwAAgADAAYAAAAYAB0AAgADAAcAAAAUABwAAgAEAAUAAAAVABwAAgAEAAUAAAAWABwAAgAEAAUAAAAXABwAAgAEAAUAAAAFABwAAgAEAAUAAAACABwAAgAEAAUAAAAJABgAAgARAAYAAAAJABcAAgAQAAYAAAAJABYAAgAQAAQAAAAKABUAAgATAAIAAAAKABQAAgATAAAAAAAJABMAAgATAAEAAAAJABIAAgATAAAAAAAIABIAAgASAAAAAAAHABIAAgARAAAAAAAHABMAAgARAAEAAAAHABUAAgARAAIAAAAIABQAAgASAAEAAAAIABUAAgASAAIAAAAHABQAAgARAAEAAAAIABMAAgASAAEAAAAJABQAAgASAAEAAAAIABcAAgASAAQAAAAJABUAAgARAAQAAAA=")
+
+[node name="Player" parent="." instance=ExtResource("2_kocsa")]
+position = Vector2(74, 305)
+
+[node name="coin1" parent="." instance=ExtResource("3_0a3ge")]
+position = Vector2(243, 277)
+
+[node name="coin2" parent="." instance=ExtResource("3_0a3ge")]
+position = Vector2(308, 275)
+
+[node name="coin3" parent="." instance=ExtResource("3_0a3ge")]
+position = Vector2(376, 278)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_ignore_camera_zoom = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(-15, -17)
+motion_scale = Vector2(0.4, 1)
+motion_mirroring = Vector2(1749.6, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+modulate = Color(0.96333426, 0.95509034, 0.9697843, 1)
+texture_repeat = 2
+position = Vector2(-257, -52)
+scale = Vector2(3.3159258, 3.4300003)
+texture = ExtResource("4_v41ee")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 540, 200)
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(-30, -34)
+motion_scale = Vector2(0.6, 1)
+motion_mirroring = Vector2(1749.6, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+modulate = Color(1.0304095, 1.0514537, 1.0309975, 1)
+texture_repeat = 2
+position = Vector2(-243, -82.00001)
+scale = Vector2(5.953333, 3.8549998)
+texture = ExtResource("5_tltda")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 300, 200)
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(-15, -17)
+motion_scale = Vector2(0.6, 1)
+motion_mirroring = Vector2(1749.6, 0)
+script = ExtResource("6_p6qw5")
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+texture_repeat = 2
+position = Vector2(-208.00002, -158)
+scale = Vector2(1.2454685, 1)
+texture = ExtResource("7_6li7e")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 1280, 720)
+
+[node name="Control" parent="." instance=ExtResource("8_tcq6v")]
+offset_left = 8.0
+offset_top = 217.0
+offset_right = 114.0
+offset_bottom = 274.0

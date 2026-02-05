@@ -1,0 +1,84 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxjkxhtc28dfr"]
+
+[ext_resource type="Theme" uid="uid://lkuv8i5js0ml" path="res://main_menu.tres" id="1_bqqt6"]
+[ext_resource type="Script" uid="uid://dpgccl8te5qay" path="res://scripts/main_menu.gd" id="2_wu84c"]
+[ext_resource type="Texture2D" uid="uid://bnkrhdfmwhrlm" path="res://assets/backgrounds_menu/image_20251120151552.png" id="3_8ln24"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_bqqt6")
+script = ExtResource("2_wu84c")
+
+[node name="ColorRect" type="TextureRect" parent="."]
+self_modulate = Color(0.9459776, 0.9459776, 0.9459776, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -24.0
+offset_bottom = 352.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_8ln24")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = -18.0
+offset_right = 7.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.33457485, 0.53445727, 0.8433709, 1)
+theme_override_font_sizes/font_size = 42
+text = "PixelRun"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button container" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="StartButton" type="Button" parent="MarginContainer/VBoxContainer/Button container"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_neighbor_top = NodePath(".")
+focus_neighbor_bottom = NodePath("../EndButton")
+theme_override_colors/font_color = Color(0.37879786, 0.66220975, 0.97112554, 1)
+theme_override_font_sizes/font_size = 22
+text = "Начать игру!"
+
+[node name="EndButton" type="Button" parent="MarginContainer/VBoxContainer/Button container"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_neighbor_top = NodePath("../StartButton")
+focus_neighbor_bottom = NodePath(".")
+theme_override_colors/font_color = Color(0.4, 0.60784316, 0.8352941, 1)
+theme_override_font_sizes/font_size = 22
+text = "Выйти из игры"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Button container/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Button container/EndButton" to="." method="_on_end_button_pressed"]

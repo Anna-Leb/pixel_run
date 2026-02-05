@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3 uid="uid://otds0fignuh7"]
+
+[ext_resource type="Script" uid="uid://cmp2lpujvlhyr" path="res://scripts/levels_menu.gd" id="1_r3otx"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r3otx")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 649.0
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 78.0
+offset_top = 102.0
+offset_right = 190.0
+offset_bottom = 214.0
+theme_override_font_sizes/font_size = 31
+text = "1"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 224.0
+offset_top = 102.0
+offset_right = 336.0
+offset_bottom = 214.0
+theme_override_font_sizes/font_size = 31
+text = "2"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
