@@ -6,12 +6,10 @@ extends CharacterBody2D
 const SPEED = 180.0
 const JUMP_VELOCITY = -300.0
 
-var start_position: Vector2
 var can_move = true
 
 func _ready():
 	add_to_group("Player")
-	start_position = global_position  # Сохраняем стартовую позицию
 	 
 func updateAnimation():
 	var direction = "stay"
@@ -45,6 +43,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		# ЗАМЕДЛЕНИЕ: постепенно уменьшаем скорость до 0
 		velocity.x = move_toward(velocity.x, 0, 1000 * delta)
+
 
 	if can_move:
 		sprite.flip_h = velocity.x < 0 if abs(velocity.x) > 10 else sprite.flip_h

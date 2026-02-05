@@ -8,10 +8,13 @@ signal coins_changed(new_amount)
 
 func add_coins(amount: int):
 	coins += amount
-	total_coins += amount
 	coins_changed.emit(coins)
-	print("Монеток собрано: ", coins)	# отладка
+	print("Монеток собрано: ", coins)	
 
+func save_coins():
+	total_coins += coins
+	reset_coins()
+	
 func reset_coins():
 	coins = 0
 	
