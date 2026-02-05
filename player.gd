@@ -24,6 +24,7 @@ func updateAnimation():
 
 func respawn() -> void:
 	print("Респавн игрока...")
+	Global.reset_coins()
 	get_tree().reload_current_scene()
 	
 func _physics_process(delta: float) -> void:		

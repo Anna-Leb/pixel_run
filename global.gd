@@ -11,6 +11,9 @@ func add_coins(amount: int):
 	total_coins += amount
 	coins_changed.emit(coins)
 	print("Монеток собрано: ", coins)	# отладка
+
+func reset_coins():
+	coins = 0
 	
 func spend_coins(amount: int) -> bool:	# функция для траты монет (будущее)
 	if coins >= amount:
