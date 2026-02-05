@@ -7,6 +7,7 @@ const SPEED = 180.0
 const JUMP_VELOCITY = -300.0
 
 var start_position: Vector2
+var can_move = true
 
 func _ready():
 	add_to_group("Player")
@@ -31,7 +32,7 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
+	
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
@@ -47,5 +48,6 @@ func _physics_process(delta: float) -> void:
 
 	sprite.flip_h = velocity.x < 0 if abs(velocity.x) > 10 else sprite.flip_h
 	
-	move_and_slide()
-	updateAnimation()	
+	if can_move:
+		move_and_slide()
+		updateAnimation()	
