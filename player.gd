@@ -46,8 +46,9 @@ func _physics_process(delta: float) -> void:
 		# ЗАМЕДЛЕНИЕ: постепенно уменьшаем скорость до 0
 		velocity.x = move_toward(velocity.x, 0, 1000 * delta)
 
-	sprite.flip_h = velocity.x < 0 if abs(velocity.x) > 10 else sprite.flip_h
-	
 	if can_move:
+		sprite.flip_h = velocity.x < 0 if abs(velocity.x) > 10 else sprite.flip_h
 		move_and_slide()
 		updateAnimation()	
+	else:
+		animation.play("stay")
