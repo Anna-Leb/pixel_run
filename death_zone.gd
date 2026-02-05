@@ -1,10 +1,12 @@
 @tool
 extends Area2D
 
-# Сигнал для уведомления о смерти игрока
-signal player_died
+func _ready():
+	# Подключаем сигнал автоматически
+	body_entered.connect(_on_body_entered)
 
 func _on_body_entered(body: Node2D) -> void:
 	# Проверяем, что вошёл именно игрок (по группе)
-	if body.is_in_group("player"):
-		emit_signal("player_died")
+	if body.is_in_group("Player"):
+		print("Игрок вошел в смертельную зону")
+		body.respawn()

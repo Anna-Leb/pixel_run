@@ -6,9 +6,12 @@ extends CharacterBody2D
 const SPEED = 180.0
 const JUMP_VELOCITY = -300.0
 
+var start_position: Vector2
+
 func _ready():
 	add_to_group("Player")
-	
+	start_position = global_position  # Сохраняем стартовую позицию
+	 
 func updateAnimation():
 	var direction = "stay"
 	
@@ -18,8 +21,12 @@ func updateAnimation():
 		direction = "jump"
 		
 	animation.play(direction)
+
+func respawn() -> void:
+	print("Респавн игрока...")
+	get_tree().reload_current_scene()
 	
-func _physics_process(delta: float) -> void:
+func _physics_process(delta: float) -> void:		
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta

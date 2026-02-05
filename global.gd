@@ -18,7 +18,3 @@ func spend_coins(amount: int) -> bool:	# функция для траты мон
 		coins_changed.emit(coins)
 		return true
 	return false
-	
-func reset_level_coins():
-	coins = 0
-	coins_changed.emit(coins)

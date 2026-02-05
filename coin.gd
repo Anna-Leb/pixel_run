@@ -11,3 +11,4 @@ func _on_coin_body_entered(body: Node2D) -> void:
 		Global.add_coins(1)
 		self.queue_free()
 		print(Global.coins)
+		
